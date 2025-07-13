@@ -1,4 +1,4 @@
-
+d1
 session_01
 
 database
@@ -9,5 +9,49 @@ nosql
 database adminstrator(DBAs): access levels 
 
 --------------------------------------------------------------
-
+d1
 session_02
+
+sql 
+use postgresql
+[optional]
+(forced)
+
+create database one;
+disconnect from pgadmin or other user
+drop database if exists one;
+
+drop database if exists one with (force);
+
+create database one with [options];
+create database one with owner postgres encoding= 'utf8';
+
+alter database one rename to two;
+
+--------------------------------------------------------------
+d1
+session_03
+
+table
+CREATE TABLE table_name (
+    column1 data_type [constraints],
+    column2 data_type [constraints],
+    ...
+);
+
+create table users (email varchar(60) , password varchar(60),age smallint, address varchar(1000))
+
+drop table users;
+
+unique
+not null
+create table users (email varchar(60) unique not null , password varchar(60) not null ,age smallint, address varchar(
+1000));
+
+alter table name [actions];
+
+alter table users drop column address;
+
+alter table users add column address varchar(1000) unique;
+
+
