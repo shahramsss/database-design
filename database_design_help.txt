@@ -1,0 +1,13 @@
+
+session_01
+
+database
+database mangement system(dbms): sqlite , postgresql, .....
+crud
+relational database: sql langunge
+nosql
+database adminstrator(DBAs): access levels 
+
+--------------------------------------------------------------
+
+session_02
