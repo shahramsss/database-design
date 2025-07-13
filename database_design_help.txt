@@ -54,4 +54,70 @@ alter table users drop column address;
 
 alter table users add column address varchar(1000) unique;
 
+--------------------------------------------------------------
+d1
+session_04
 
+select: read data
+
+two=# \c shop;
+You are now connected to database "shop" as user "postgres".
+shop=# 
+
+select * from employees;
+select title, address from employees;
+
+distinct
+select distinct title from employees;
+select distinct title, address from employees;
+
+count 
+select count(title) from employees;
+
+count distinct
+select count(distinct title) from employees;
+
+select customerid , shippeddate - orderdate from orders;
+
+\c shop;
+
+where
+select * from order_details where quantity<=10 ;
+select * from orders where orderdate > '1997-07-07';
+
+and 
+select * from customers where country='Germany' and city='Berlin';
+
+or
+select * from customers where country='Germany' or city='Berlin';
+
+not 
+select * from customers where not country='Germany' and city='Berlin';
+select * from customers where not country='Germany' and (city='Berlin' or city='paris');
+
+between
+select * from order_details  WHERE unitprice BETWEEN 10 and 43 ;
+
+in
+select * from customers  WHERE country in ('Germany' , 'Mexico', 'Spain') ;
+
+ORDER by asc , desc
+select DISTINCT country , city  from customers ORDER by country asc , city desc ;
+
+min max sum avg
+select min(unitprice) from order_details ;
+select max(unitprice) from order_details ;
+select avg(unitprice) from order_details ;
+select sum(unitprice) from order_details ;
+
+like 
+%: multi char
+_: on char
+select * from customers where companyname like 'A_f%';
+
+* + - / ....
+as: name for name column
+select unitprice * quantity as totla from order_details;
+
+LIMIT
+select unitprice * quantity as totla from order_details LIMIT 10;
