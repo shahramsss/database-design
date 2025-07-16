@@ -1,4 +1,4 @@
-d1
+d1 r1 r2
 session_01
 
 database
@@ -9,7 +9,7 @@ nosql
 database adminstrator(DBAs): access levels 
 
 --------------------------------------------------------------
-d1
+d1 r1 r2
 session_02
 
 sql 
@@ -29,7 +29,7 @@ create database one with owner postgres encoding= 'utf8';
 alter database one rename to two;
 
 --------------------------------------------------------------
-d1
+d1 r1 r2
 session_03
 
 table
@@ -55,7 +55,7 @@ alter table users drop column address;
 alter table users add column address varchar(1000) unique;
 
 --------------------------------------------------------------
-d1
+d1 r1 r2
 session_04
 
 select: read data
@@ -78,8 +78,6 @@ count distinct
 select count(distinct title) from employees;
 
 select customerid , shippeddate - orderdate from orders;
-
-\c shop;
 
 where
 select * from order_details where quantity<=10 ;
@@ -121,3 +119,21 @@ select unitprice * quantity as totla from order_details;
 
 LIMIT
 select unitprice * quantity as totla from order_details LIMIT 10;
+
+--------------------------------------------------------------
+
+session_05
+
+INSERT INTO customers (customerid, companyname, country) VALUES ('1', 'one', 'iran') RETURNING *;
+
+delete from customers where conditon(forced)
+delete from customers where country='iran';
+
+update customers set country ='iri' , companyname='sss' WHERE conditon(forced)
+update customers set country ='iri' , companyname='sss' WHERE customerid='3'
+
+select into: create new table by other data tables
+select * into new_customers from customers where country in ('Mexcio' , 'Germany')
+
+select into: use other data table with out create new table:
+select into new_customers select * from customers where country='Spain';
