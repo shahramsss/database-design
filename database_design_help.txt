@@ -137,3 +137,16 @@ select * into new_customers from customers where country in ('Mexcio' , 'Germany
 
 select into: use other data table with out create new table:
 select into new_customers select * from customers where country='Spain';
+
+--------------------------------------------------------------
+
+session_06
+
+primary_key = unique not null 
+
+id 
+
+serial and bigserial = autoincrement integer
+
+CREATE table students(id serial PRIMARY key,name text, phone integer);
+insert into students (name , phone) VALUES ('sss' , 12345)
