@@ -150,3 +150,28 @@ serial and bigserial = autoincrement integer
 
 CREATE table students(id serial PRIMARY key,name text, phone integer);
 insert into students (name , phone) VALUES ('sss' , 12345)
+
+--------------------------------------------------------------
+
+session_07
+
+foriegn_key = refreces in postgresql
+
+refreces <table name> <primary key> 
+
+ON DELETE restrict: 
+اگر سعی کنی رکورد والد (Parent) را حذف کنی در حالی که رکوردهای فرزند (Child) هنوز به آن اشاره دارند، عملیات حذف ممنوع (Restrict) می‌شود.
+
+ON DELETE no action:
+تا وقتی که رکوردهای فرزند وجود دارند، اجازه‌ی حذف رکورد والد را نداری.
+
+ON DELETE cascade:
+ اگر رکورد والد (Parent) را حذف کنی، تمام رکوردهای فرزند (Child) که به آن اشاره می‌کنند، به صورت خودکار حذف می‌شوند.
+
+ON DELETE set null:
+فرزندها باقی می‌مانند ولی کلید خارجی آن‌ها NULL می‌شود.
+
+ON DELETE set default:
+کلید خارجی فرزندها به مقدار DEFAULT تغییر می‌کند
+
+ON UPDATE:  if delete parent table, dont delete data and update in child table
