@@ -175,3 +175,23 @@ ON DELETE set default:
 کلید خارجی فرزندها به مقدار DEFAULT تغییر می‌کند
 
 ON UPDATE:  if delete parent table, dont delete data and update in child table
+
+--------------------------------------------------------------
+
+session_08
+
+relation
+
+one_to_many
+
+one_to_one
+
+many_to_many: internal table
+
+boot 
+author
+PRIMARY KEY (book , author)
+
+--------------------------------------------------------------
+
+session_09
